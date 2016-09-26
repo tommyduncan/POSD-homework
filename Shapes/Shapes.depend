@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1474442866 source:c:\users\posd\desktop\posd2016f\shapes\main.cpp
+	"..\cppunitlite\TestHarness.h"
+	"utShapes.h"
+
+1473838394 c:\users\posd\desktop\posd2016f\cppunitlite\testharness.h
+	"Test.h"
+	"TestResult.h"
+	"Failure.h"
+	"TestRegistry.h"
+
+1473838394 c:\users\posd\desktop\posd2016f\cppunitlite\test.h
+	<cmath>
+	"SimpleString.h"
+
+1473838394 c:\users\posd\desktop\posd2016f\cppunitlite\simplestring.h
+
+1473838394 c:\users\posd\desktop\posd2016f\cppunitlite\testresult.h
+
+1473838394 c:\users\posd\desktop\posd2016f\cppunitlite\failure.h
+	"SimpleString.h"
+
+1473838394 c:\users\posd\desktop\posd2016f\cppunitlite\testregistry.h
+
+1474603331 c:\users\posd\desktop\posd2016f\shapes\utshapes.h
+	"..\cppunitlite\TestHarness.h"
+	"Shapes.h"
+	<vector>
+
+1474603370 c:\users\posd\desktop\posd2016f\shapes\shapes.h
+	<vector>
+
+1474621233 source:d:\tommy\git\posd2016f\shapes\main.cpp
+	"..\cppunitlite\TestHarness.h"
+	"utShapes.h"
+
+1474621233 d:\tommy\git\posd2016f\cppunitlite\testharness.h
+	"Test.h"
+	"TestResult.h"
+	"Failure.h"
+	"TestRegistry.h"
+
+1474621233 d:\tommy\git\posd2016f\cppunitlite\test.h
+	<cmath>
+	"SimpleString.h"
+
+1474621233 d:\tommy\git\posd2016f\cppunitlite\simplestring.h
+
+1474621233 d:\tommy\git\posd2016f\cppunitlite\testresult.h
+
+1474621233 d:\tommy\git\posd2016f\cppunitlite\failure.h
+	"SimpleString.h"
+
+1474621233 d:\tommy\git\posd2016f\cppunitlite\testregistry.h
+
+1474876945 d:\tommy\git\posd2016f\shapes\utshapes.h
+	"..\cppunitlite\TestHarness.h"
+	"Shapes.h"
+	<vector>
+
+1474876645 d:\tommy\git\posd2016f\shapes\shapes.h
+	<vector>
+	<math.h>
+
+1474621233 source:d:\tommy\git\posd-homework\shapes\main.cpp
+	"..\cppunitlite\TestHarness.h"
+	"utShapes.h"
+
+1474621233 d:\tommy\git\posd-homework\cppunitlite\testharness.h
+	"Test.h"
+	"TestResult.h"
+	"Failure.h"
+	"TestRegistry.h"
+
+1474621233 d:\tommy\git\posd-homework\cppunitlite\test.h
+	<cmath>
+	"SimpleString.h"
+
+1474621233 d:\tommy\git\posd-homework\cppunitlite\simplestring.h
+
+1474621233 d:\tommy\git\posd-homework\cppunitlite\testresult.h
+
+1474621233 d:\tommy\git\posd-homework\cppunitlite\failure.h
+	"SimpleString.h"
+
+1474621233 d:\tommy\git\posd-homework\cppunitlite\testregistry.h
+
+1474877034 d:\tommy\git\posd-homework\shapes\utshapes.h
+	"..\cppunitlite\TestHarness.h"
+	"Shapes.h"
+	<vector>
+
+1474876645 d:\tommy\git\posd-homework\shapes\shapes.h
+	<vector>
+	<math.h>
+
