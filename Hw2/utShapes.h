@@ -18,30 +18,36 @@ TEST (first, maxArea){
     Rectangle r1(0, 0, 4, 2);   // Area = 8
     Circle c1(0, 0, 10);    // Area = 314
     Triangle t1(0, 2, -3, 0, 0, 0); // Area = 3
+    bool triangleJudgement = t1.isTriangle();
 
     vector<Shape *> ss;
     ss.push_back(&r1);
     ss.push_back(&c1);
     ss.push_back(&t1);
+
+    CHECK_EQUAL(true, triangleJudgement);
 
     DOUBLES_EQUAL(314, maxAreaShape(ss)->area(), epsilon);
 }
 
 TEST (second, sortByDecreasingPerimeter) {
-    Rectangle r1(0,0,4,2);
-    Circle c1(0,0,10);
-    Triangle t1(0, 0, 3, 0, 0, 4);
+    Rectangle r1(0,0,8,7);  // Perimeter = 30
+    Circle c1(0,0,10);  // Perimeter = 62.8
+    Triangle t1(0, 0, 3, 0, 0, 4);  // Perimeter = 12
+    bool triangleJudgement = t1.isTriangle();
 
     vector<Shape *> ss;
     ss.push_back(&r1);
     ss.push_back(&c1);
     ss.push_back(&t1);
 
-    double *testValue = sortByDecreasingPerimeter(ss);
+    vector<Shape *> sortedShapes = sortByDecreasingPerimeter(ss);
 
-    DOUBLES_EQUAL(12, *testValue, epsilon);
-    DOUBLES_EQUAL(12, *(testValue + 1), epsilon);
-    DOUBLES_EQUAL(62.8, *(testValue + 2), epsilon);
+    CHECK_EQUAL(true, triangleJudgement);
+
+    DOUBLES_EQUAL(12, sortedShapes[0]->perimeter(), epsilon);
+    DOUBLES_EQUAL(30, sortedShapes[1]->perimeter(), epsilon);
+    DOUBLES_EQUAL(62.8, sortedShapes[2]->perimeter(), epsilon);
 }
 
 TEST (third, compositeArea) {

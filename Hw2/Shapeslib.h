@@ -23,11 +23,23 @@ double sumOfPerimeter(const vector<Shape *> &shapes) {
 }
 
 /* Compare function for quick sort. */
-static int compare (const void * a, const void * b)
+/*static int compare (const void * a, const void * b)
 {
   if (*(double*)a > *(double*)b) return 1;
   else if (*(double*)a < *(double*)b) return -1;
   else return 0;
+}*/
+
+static int compareMethod (const void * a, const void * b)
+{
+    Shape *ptr_a = *(Shape **) a;
+    Shape *ptr_b = *(Shape **) b;
+
+    if (ptr_b->area() < ptr_a->area())
+        return 1;
+    else if (ptr_a->area() < ptr_b->area())
+        return -1;
+    return 0;
 }
 
 Shape *maxAreaShape(vector<Shape *> &shapes){
@@ -43,24 +55,10 @@ Shape *maxAreaShape(vector<Shape *> &shapes){
     return maxShape;
 }
 
-double *sortByDecreasingPerimeter(vector<Shape *> &shapes){
-    double *sorted = new double[shapes.size()];
-    int i = 0;
+vector<Shape *> sortByDecreasingPerimeter(vector<Shape *> &shapes){
+    qsort(&shapes[0], shapes.size(), sizeof(Shape *), compareMethod);
 
-    // Fail to allocate memory.
-    if(sorted == nullptr){
-        cout << "Out of Memory!" << endl;
-        exit(1);
-    }
-
-    for(Shape *s: shapes){
-        *(sorted + i) = s->perimeter();
-        i++;
-    }
-
-    qsort(sorted, shapes.size(), sizeof(double), compare);
-
-    return sorted;
+    return shapes;
 }
 
 #endif
