@@ -26,7 +26,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../../posd2016f/cppunitlite/libCppUnitLite.a" />
+					<Add library="../cppunitlite/libCppUnitLite.a" />
 				</Linker>
 			</Target>
 		</Build>
