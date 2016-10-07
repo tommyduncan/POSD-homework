@@ -17,7 +17,7 @@ class Triangle : public Shape{
             if(a > 0 && b > 0 && c > 0 && (a + b) > c && (b + c) > a && (a + c) > b){
                 return true;
             }else{
-                throw string("Cannot add triangle");
+                return false;
             }
         }
 

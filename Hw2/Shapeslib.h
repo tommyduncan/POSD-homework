@@ -35,9 +35,9 @@ static int compareMethod (const void * a, const void * b)
     Shape *ptr_a = *(Shape **) a;
     Shape *ptr_b = *(Shape **) b;
 
-    if (ptr_b->area() < ptr_a->area())
+    if (ptr_a->area() < ptr_b->area())
         return 1;
-    else if (ptr_a->area() < ptr_b->area())
+    else if (ptr_a->area() > ptr_b->area())
         return -1;
     return 0;
 }
