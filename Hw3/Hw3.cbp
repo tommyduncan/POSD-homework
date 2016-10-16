@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="HW3" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/HW3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="../cppunitlite/libCppUnitLite.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/HW3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Circle.cpp" />
+		<Unit filename="Circle.h" />
+		<Unit filename="ComboMedia.cpp" />
+		<Unit filename="ComboMedia.h" />
+		<Unit filename="Media.h" />
+		<Unit filename="Rectangle.cpp" />
+		<Unit filename="Rectangle.h" />
+		<Unit filename="Shape.h" />
+		<Unit filename="ShapeMedia.cpp" />
+		<Unit filename="ShapeMedia.h" />
+		<Unit filename="Shapelib.cpp" />
+		<Unit filename="Shapelib.h" />
+		<Unit filename="Triangle.cpp" />
+		<Unit filename="Triangle.h" />
+		<Unit filename="Visitor.cpp" />
+		<Unit filename="Visitor.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="utShapes.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
