@@ -1,9 +1,8 @@
-#ifndef SHAPESLIB_H_INCLUDED
-#define SHAPESLIB_H_INCLUDED
-
 #include<vector>
 #include<iostream>
 #include<cstdlib>
+
+#include "Shape.h"
 
 using namespace std;
 
@@ -22,7 +21,7 @@ double sumOfPerimeter(const vector<Shape *> &shapes) {
     return total;
 }
 
-static int compareMethod (const void * a, const void * b)
+int compareMethod (const void * a, const void * b)
 {
     Shape *ptr_a = *(Shape **) a;
     Shape *ptr_b = *(Shape **) b;
@@ -52,5 +51,3 @@ vector<Shape *> sortByDecreasingPerimeter(vector<Shape *> &shapes){
 
     return shapes;
 }
-
-#endif

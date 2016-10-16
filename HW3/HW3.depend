@@ -1,0 +1,121 @@
+# depslib dependency file v1.0
+1476521508 source:d:\tommy\git\posd-homework\hw3\main.cpp
+	"..\cppunitlite\TestHarness.h"
+	"utShapes.h"
+	"Shape.h"
+
+1476524723 d:\tommy\git\posd-homework\hw3\shape.h
+
+1476523884 d:\tommy\git\posd-homework\hw3\rectangle.h
+	"Shape.h"
+
+1476523901 source:d:\tommy\git\posd-homework\hw3\rectangle.cpp
+	<math.h>
+	"Rectangle.h"
+
+1476519472 source:d:\tommy\git\posd-homework\hw3\circle.cpp
+	"Circle.h"
+
+1476519910 d:\tommy\git\posd-homework\hw3\circle.h
+	"Shape.h"
+
+1476519960 source:d:\tommy\git\posd-homework\hw3\triangle.cpp
+	<math.h>
+	"Triangle.h"
+
+1476519939 d:\tommy\git\posd-homework\hw3\triangle.h
+	"Shape.h"
+
+1476524180 source:d:\tommy\git\posd-homework\hw3\shapelib.cpp
+	<vector>
+	<iostream>
+	<cstdlib>
+	"Shape.h"
+
+1476521106 source:d:\tommy\git\posd-homework\hw3\composite.cpp
+	<vector>
+	"Shapelib.h"
+	"Composite.h"
+	"Shape.h"
+
+1476524171 d:\tommy\git\posd-homework\hw3\shapelib.h
+	<vector>
+	"Shape.h"
+
+1476521538 d:\tommy\git\posd-homework\hw3\composite.h
+	<vector>
+	"Shape.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\testharness.h
+	"Test.h"
+	"TestResult.h"
+	"Failure.h"
+	"TestRegistry.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\test.h
+	<cmath>
+	"SimpleString.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\simplestring.h
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\testresult.h
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\failure.h
+	"SimpleString.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\testregistry.h
+
+1476627982 d:\tommy\git\posd-homework\hw3\utshapes.h
+	<math.h>
+	<vector>
+	<iostream>
+	"..\cppunitlite\TestHarness.h"
+	"Rectangle.h"
+	"Circle.h"
+	"Triangle.h"
+	"ShapeMedia.h"
+	"ComboMedia.h"
+
+1476524918 source:d:\tommy\git\posd-homework\hw3\hexagon.cpp
+	<vector>
+	"Shapelib.h"
+	"Hexagon.h"
+	"Shape.h"
+
+1476524764 d:\tommy\git\posd-homework\hw3\hexagon.h
+	<vector>
+	"Shape.h"
+
+1476524123 source:d:\tommy\git\posd-homework\hw3\shape.cpp
+	"Shape.h"
+
+1476627761 source:d:\tommy\git\posd-homework\hw3\shapemedia.cpp
+	"ShapeMedia.h"
+
+1476627909 d:\tommy\git\posd-homework\hw3\shapemedia.h
+	"Shape.h"
+	"Media.h"
+	"Visitor.h"
+
+1476627110 d:\tommy\git\posd-homework\hw3\media.h
+	"Visitor.h"
+
+1476627875 d:\tommy\git\posd-homework\hw3\visitor.h
+	<string>
+
+1476627947 d:\tommy\git\posd-homework\hw3\combomedia.h
+	<vector>
+	"Media.h"
+	"Visitor.h"
+
+1476627725 source:d:\tommy\git\posd-homework\hw3\combomedia.cpp
+	"ComboMedia.h"
+
+1476527395 source:d:\tommy\git\posd-homework\hw3\media.cpp
+
+1476627889 source:d:\tommy\git\posd-homework\hw3\visitor.cpp
+	<sstream>
+	"Visitor.h"
+	"ShapeMedia.h"
+	"ComboMedia.h"
+

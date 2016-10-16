@@ -1,8 +1,6 @@
 #ifndef TRIANGLES_H_INCLUDED
 #define TRIANGLES_H_INCLUDED
 
-#include<string>
-
 using namespace std;
 
 class Triangle : public Shape{

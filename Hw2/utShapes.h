@@ -69,7 +69,7 @@ TEST (fourth, compositePerimeter) {
     Composite shape(ss);
 
     shape.addShape(&cSmall);
-
+	
     DOUBLES_EQUAL(26.28, shape.perimeter(), epsilon);
 }
 
