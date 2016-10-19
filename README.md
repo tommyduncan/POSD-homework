@@ -1,10 +1,10 @@
 # POSD-homework
 
 - Hw1
->> imple OOP practice
+>Simple OOP practice
  
 - Hw2
->>Composite Pattern
+>Composite Pattern
 
 - Hw3
->>Visitor Pattern
+>Visitor Pattern
