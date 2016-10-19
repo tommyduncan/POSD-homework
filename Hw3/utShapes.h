@@ -3,7 +3,6 @@
 
 #include<math.h>
 #include<vector>
-#include<iostream>
 #include "..\cppunitlite\TestHarness.h"
 #include "Rectangle.h"
 #include "Circle.h"
@@ -16,9 +15,9 @@ using namespace std;
 const double epsilon = 0.000001;
 
 TEST(first, hexagon){
-    Triangle t1(0, 4, 3, 0, 3, 8);
-    Triangle t2(11, 4, 8, 0, 8, 8);
-    Rectangle r1(3, 8, 8, 5);
+    Triangle t1(0, (3 * sqrt(3)), 3, 0, 3, (6 * sqrt(3)));
+    Triangle t2(9, (6 * sqrt(3)), 9, 0, 12, (3 * sqrt(3)));
+    Rectangle r1(3, (6 * sqrt(3)), 6, (6 * sqrt(3)));
 
     ShapeMedia sm_t1(&t1);
     ShapeMedia sm_t2(&t2);
@@ -30,14 +29,14 @@ TEST(first, hexagon){
 
     hexagon.add(&sm_r1);
 
-    DOUBLES_EQUAL(64, hexagon.area(), epsilon);
-    DOUBLES_EQUAL(62, hexagon.perimeter(), epsilon);
+    DOUBLES_EQUAL((54 * sqrt(3)), hexagon.area(), epsilon);
+    DOUBLES_EQUAL((36 + (24 * sqrt(3))), hexagon.perimeter(), epsilon);
 }
 
 TEST(second, AreaVisitor){
-    Triangle t1(0, 4, 3, 0, 3, 8);
-    Triangle t2(11, 4, 8, 0, 8, 8);
-    Rectangle r1(3, 8, 8, 5);
+    Triangle t1(0, (3 * sqrt(3)), 3, 0, 3, (6 * sqrt(3)));
+    Triangle t2(9, (6 * sqrt(3)), 9, 0, 12, (3 * sqrt(3)));
+    Rectangle r1(3, (6 * sqrt(3)), 6, (6 * sqrt(3)));
 
     ShapeMedia sm_t1(&t1);
     ShapeMedia sm_t2(&t2);
@@ -55,13 +54,13 @@ TEST(second, AreaVisitor){
 
     combo2.accept(&mv);
 
-    CHECK("64 52 40 12 12 " == mv.getTrack());
+    CHECK("93.53 77.94 62.35 15.58 15.58 " == mv.getTrack());
 }
 
 TEST(third, perimeterVisitor){
-    Triangle t1(0, 4, 3, 0, 3, 8);
-    Triangle t2(11, 4, 8, 0, 8, 8);
-    Rectangle r1(3, 8, 8, 5);
+    Triangle t1(0, (3 * sqrt(3)), 3, 0, 3, (6 * sqrt(3)));
+    Triangle t2(9, (6 * sqrt(3)), 9, 0, 12, (3 * sqrt(3)));
+    Rectangle r1(3, (6 * sqrt(3)), 6, (6 * sqrt(3)));
 
     ShapeMedia sm_t1(&t1);
     ShapeMedia sm_t2(&t2);
@@ -79,7 +78,7 @@ TEST(third, perimeterVisitor){
 
     combo2.accept(&pv);
 
-    CHECK("62 44 26 18 18 " == pv.getTrack());
+    CHECK("77.56 55.17 32.78 22.39 22.39 " == pv.getTrack());
 }
 
 #endif

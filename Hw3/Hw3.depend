@@ -45,10 +45,9 @@
 
 1474877774 d:\tommy\git\posd-homework\cppunitlite\testregistry.h
 
-1476627982 d:\tommy\git\posd-homework\hw3\utshapes.h
+1476872549 d:\tommy\git\posd-homework\hw3\utshapes.h
 	<math.h>
 	<vector>
-	<iostream>
 	"..\cppunitlite\TestHarness.h"
 	"Rectangle.h"
 	"Circle.h"
@@ -84,8 +83,9 @@
 	<math.h>
 	"Triangle.h"
 
-1476627889 source:d:\tommy\git\posd-homework\hw3\visitor.cpp
+1476872422 source:d:\tommy\git\posd-homework\hw3\visitor.cpp
 	<sstream>
+	<string>
 	"Visitor.h"
 	"ShapeMedia.h"
 	"ComboMedia.h"
