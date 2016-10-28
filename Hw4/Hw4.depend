@@ -1,0 +1,92 @@
+# depslib dependency file v1.0
+1476519472 source:d:\tommy\git\posd-homework\hw4\circle.cpp
+	"Circle.h"
+
+1476519910 d:\tommy\git\posd-homework\hw4\circle.h
+	"Shape.h"
+
+1476524723 d:\tommy\git\posd-homework\hw4\shape.h
+
+1476627725 source:d:\tommy\git\posd-homework\hw4\combomedia.cpp
+	"ComboMedia.h"
+
+1476627947 d:\tommy\git\posd-homework\hw4\combomedia.h
+	<vector>
+	"Media.h"
+	"Visitor.h"
+
+1476627110 d:\tommy\git\posd-homework\hw4\media.h
+	"Visitor.h"
+
+1476627875 d:\tommy\git\posd-homework\hw4\visitor.h
+	<string>
+
+1476521508 source:d:\tommy\git\posd-homework\hw4\main.cpp
+	"..\cppunitlite\TestHarness.h"
+	"utShapes.h"
+	"Shape.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\testharness.h
+	"Test.h"
+	"TestResult.h"
+	"Failure.h"
+	"TestRegistry.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\test.h
+	<cmath>
+	"SimpleString.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\simplestring.h
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\testresult.h
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\failure.h
+	"SimpleString.h"
+
+1474877774 d:\tommy\git\posd-homework\cppunitlite\testregistry.h
+
+1476872549 d:\tommy\git\posd-homework\hw4\utshapes.h
+	<math.h>
+	<vector>
+	"..\cppunitlite\TestHarness.h"
+	"Rectangle.h"
+	"Circle.h"
+	"Triangle.h"
+	"ShapeMedia.h"
+	"ComboMedia.h"
+
+1476523884 d:\tommy\git\posd-homework\hw4\rectangle.h
+	"Shape.h"
+
+1476519939 d:\tommy\git\posd-homework\hw4\triangle.h
+	"Shape.h"
+
+1476627909 d:\tommy\git\posd-homework\hw4\shapemedia.h
+	"Shape.h"
+	"Media.h"
+	"Visitor.h"
+
+1476523901 source:d:\tommy\git\posd-homework\hw4\rectangle.cpp
+	<math.h>
+	"Rectangle.h"
+
+1476524180 source:d:\tommy\git\posd-homework\hw4\shapelib.cpp
+	<vector>
+	<iostream>
+	<cstdlib>
+	"Shape.h"
+
+1476627761 source:d:\tommy\git\posd-homework\hw4\shapemedia.cpp
+	"ShapeMedia.h"
+
+1476519960 source:d:\tommy\git\posd-homework\hw4\triangle.cpp
+	<math.h>
+	"Triangle.h"
+
+1476872422 source:d:\tommy\git\posd-homework\hw4\visitor.cpp
+	<sstream>
+	<string>
+	"Visitor.h"
+	"ShapeMedia.h"
+	"ComboMedia.h"
+
