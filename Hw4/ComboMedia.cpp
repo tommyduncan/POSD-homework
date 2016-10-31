@@ -28,6 +28,17 @@ void ComboMedia::accept(MediaVisitor * cmVisitor) {
 void ComboMedia::add(Media *m) {
     media.push_back(m);
 }
+
+void ComboMedia::remove(Media *m){
+    vector<Media *>::iterator itr;
+
+    for(itr = media.begin(); itr != media.end(); ){
+        if(*itr == m){
+            itr = media.erase(itr);
+        }
+        else ++itr;
+    }
+}
 /*
 string ComboMedia::getDescription(){
     return "ComboMedia";

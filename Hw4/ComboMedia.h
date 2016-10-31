@@ -16,6 +16,7 @@ public:
     double perimeter() const;
     void accept(MediaVisitor * cmVisitor);
     void add(Media *m);
+    void remove(Media *m);
     //string getDescription();
 
 private:

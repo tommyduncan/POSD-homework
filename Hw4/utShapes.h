@@ -57,4 +57,23 @@ TEST(second, buildHouse){
     CHECK("combo(combo(combo(r(10 0 15 5)c(12 5 2))r(0 0 25 20))t(0 20 16 32 25 20))" == dv.getDescription());
 }
 
+TEST(third, vectorErase){
+    Triangle t1(0, 20, 16, 32, 25 ,20);
+    Rectangle r1(0, 0, 25, 20);
+    Circle c1(12, 5, 2);
+    Rectangle r2(10, 0, 15, 5);
+
+    ShapeMedia sm1(&t1);
+    ShapeMedia sm2(&r1);
+    ShapeMedia sm3(&c1);
+    ShapeMedia sm4(&r2);
+
+    vector<Media *> shapeMediaVector = {&sm1, &sm2, &sm3, &sm4};
+    ComboMedia cm(shapeMediaVector);
+
+    cm.remove(&sm1);
+
+    cout << cm.area() << endl;
+}
+
 #endif
