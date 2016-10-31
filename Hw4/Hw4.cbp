@@ -39,6 +39,8 @@
 		<Unit filename="ComboMedia.cpp" />
 		<Unit filename="ComboMedia.h" />
 		<Unit filename="Media.h" />
+		<Unit filename="MediaBuilder.cpp" />
+		<Unit filename="MediaBuilder.h" />
 		<Unit filename="Rectangle.cpp" />
 		<Unit filename="Rectangle.h" />
 		<Unit filename="Shape.h" />

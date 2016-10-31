@@ -9,3 +9,12 @@ double Circle::area() const {
 double Circle::perimeter() const {
     return ( 2 * r * 3.14 );
 }
+
+string Circle::description(){
+    stringstream ss;
+
+    ss << "c(" << cx << " " << cy << " " << r << ")";
+    desc = ss.str();
+
+    return desc;
+}

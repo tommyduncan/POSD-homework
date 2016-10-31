@@ -2,6 +2,10 @@
 #define RECTANGLE_H_INCLUDED
 
 #include "Shape.h"
+#include<string>
+#include<sstream>
+
+using namespace std;
 
 class Rectangle : public Shape {
 public:
@@ -9,9 +13,11 @@ public:
     double area() const;
     double perimeter() const;
     double diagonal() const;
+    string description();
 
 private:
     double x,y,l,w;
+    string desc;
 };
 
 #endif

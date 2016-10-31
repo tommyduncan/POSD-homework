@@ -1,7 +1,10 @@
 #ifndef MEDIA_H_INCLUDED
 #define MEDIA_H_INCLUDED
 
+#include<string>
 #include "Visitor.h"
+
+using namespace std;
 
 class Media {
 public :
@@ -11,6 +14,7 @@ public :
     virtual void add(Media * m) {
         throw string("Illegal: add on media");
     }
+    virtual string getDescription(){ return "NULL";};
 };
 
 #endif

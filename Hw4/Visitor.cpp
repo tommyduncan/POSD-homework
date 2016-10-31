@@ -4,34 +4,19 @@
 #include "ShapeMedia.h"
 #include "ComboMedia.h"
 
-string MediaVisitor::getTrack(){
-    return track;
+descriptionVisitor::descriptionVisitor():desc(""){}
+
+void descriptionVisitor::shapeMediaVisitor(ShapeMedia *sm) {
+    desc += sm->getDescription();
 }
 
-void AreaVisitor::shapeMediaVisitor(ShapeMedia *sm) {
-    stringstream ss;
-    ss << sm->area();
-    string shapeArea = ss.str().substr(0, 5);
-    track = track + shapeArea + " ";
+void descriptionVisitor::comboMediaVisitor(ComboMedia *cm, bool flag) {
+    if(flag)
+        desc = desc + std::string("combo(");
+    else
+        desc = desc + std::string(")");
 }
 
-void AreaVisitor::comboMediaVisitor(ComboMedia *cm) {
-    stringstream ss;
-    ss << cm->area();
-    string comboArea = ss.str().substr(0, 5);
-    track = track + comboArea + " ";
-}
-
-void PerimeterVisitor::shapeMediaVisitor(ShapeMedia *sm) {
-    stringstream ss;
-    ss << sm->perimeter();
-    string shapePerimeter = ss.str().substr(0, 5);
-    track = track + shapePerimeter + " ";
-}
-
-void PerimeterVisitor::comboMediaVisitor(ComboMedia *cm) {
-    stringstream ss;
-    ss << cm->perimeter();
-    string comboPerimeter = ss.str().substr(0, 5);
-    track = track + comboPerimeter + " ";
+string descriptionVisitor::getDescription(){
+    return desc;
 }

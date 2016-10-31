@@ -13,3 +13,7 @@ double ShapeMedia::area() const {
 double ShapeMedia::perimeter() const {
     return shape->perimeter();
 }
+
+string ShapeMedia::getDescription(){
+    return shape->description();
+}

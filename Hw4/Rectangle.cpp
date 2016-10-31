@@ -19,3 +19,12 @@ double Rectangle::perimeter() const {
 double Rectangle::diagonal() const {
     return sqrt((l * l) + (w * w));
 }
+
+string Rectangle::description(){
+    stringstream ss;
+
+    ss << "r(" << x << " " << y << " " << l << " " << w << ")";
+    desc = ss.str();
+
+    return desc;
+}

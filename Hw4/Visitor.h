@@ -10,21 +10,18 @@ class ComboMedia;
 class MediaVisitor {
 public:
     virtual void shapeMediaVisitor(ShapeMedia *sm) = 0;
-    virtual void comboMediaVisitor(ComboMedia *cm) = 0;
-    string getTrack();
-
-protected:
-    string track;
+    virtual void comboMediaVisitor(ComboMedia *cm, bool flag) = 0;
+    //string getTrack();
 };
 
-class AreaVisitor : public MediaVisitor {
+class descriptionVisitor : public MediaVisitor{
+public:
+    descriptionVisitor();
     void shapeMediaVisitor(ShapeMedia *sm);
-    void comboMediaVisitor(ComboMedia *cm);
-};
-
-class PerimeterVisitor : public MediaVisitor {
-    void shapeMediaVisitor(ShapeMedia *sm);
-    void comboMediaVisitor(ComboMedia *cm);
+    void comboMediaVisitor(ComboMedia *cm, bool flag);
+    string getDescription();
+private:
+    string desc;
 };
 
 #endif
