@@ -48,6 +48,10 @@
 		<Unit filename="ShapeMedia.h" />
 		<Unit filename="Shapelib.cpp" />
 		<Unit filename="Shapelib.h" />
+		<Unit filename="Text.cpp" />
+		<Unit filename="Text.h" />
+		<Unit filename="TextMedia.cpp" />
+		<Unit filename="TextMedia.h" />
 		<Unit filename="Triangle.cpp" />
 		<Unit filename="Triangle.h" />
 		<Unit filename="Visitor.cpp" />

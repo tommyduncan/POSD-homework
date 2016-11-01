@@ -17,3 +17,7 @@ double ShapeMedia::perimeter() const {
 string ShapeMedia::getDescription(){
     return shape->description();
 }
+
+Shape * ShapeMedia::getShape(){
+    return shape;
+}

@@ -15,6 +15,7 @@ public :
     double area() const;
     double perimeter() const;
     string getDescription();
+    Shape *getShape();
 
 private:
     Shape* shape;

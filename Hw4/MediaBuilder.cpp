@@ -11,16 +11,23 @@ void ShapeMediaBuilder::buildShapeMedia(Shape *s){
 void ShapeMediaBuilder::buildComboMedia(){
 };
 
-ShapeMedia * ShapeMediaBuilder::getShapeMedia() const{
+Media * ShapeMediaBuilder::getMedia() const{
     return sm;
 }
+
+/*
+ShapeMedia * ShapeMediaBuilder::getShapeMedia() const{
+    return sm;
+}*/
 
 ComboMediaBuilder::ComboMediaBuilder(){
     cm = nullptr;
 }
 
 void ComboMediaBuilder::buildShapeMedia(Shape *s){
-    cm->add(new ShapeMedia(s));
+    ShapeMedia *sm = new ShapeMedia(s);
+    mediaIndex.push_back(sm);
+    cm->add(sm);
 }
 
 void ComboMediaBuilder::buildShapeMedia(Media *m){
@@ -31,6 +38,19 @@ void ComboMediaBuilder::buildComboMedia(){
     cm = new ComboMedia;
 };
 
+Media * ComboMediaBuilder::getMedia() const{
+    return cm;
+}
+
+/*
 ComboMedia * ComboMediaBuilder::getComboMedia() const{
     return cm;
+}*/
+
+ShapeMedia * ComboMediaBuilder::findMedia(Shape *s){
+    for(ShapeMedia *mi: mediaIndex){
+        if(mi->getShape() == s)
+            return mi;
+    }
+    return nullptr;
 }

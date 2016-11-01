@@ -1,8 +1,7 @@
-#include<sstream>
-#include<string>
 #include "Visitor.h"
 #include "ShapeMedia.h"
 #include "ComboMedia.h"
+#include "TextMedia.h"
 
 descriptionVisitor::descriptionVisitor():desc(""){}
 
@@ -15,6 +14,10 @@ void descriptionVisitor::comboMediaVisitor(ComboMedia *cm, bool flag) {
         desc = desc + std::string("combo(");
     else
         desc = desc + std::string(")");
+}
+
+void descriptionVisitor::textMediaVisitor(TextMedia *tm) {
+    desc += tm->getDescription();
 }
 
 string descriptionVisitor::getDescription(){

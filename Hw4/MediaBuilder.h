@@ -3,6 +3,8 @@
 
 #include "Shape.h"
 #include "Media.h"
+#include "Text.h"
+#include "TextMedia.h"
 #include "ShapeMedia.h"
 #include "ComboMedia.h"
 
@@ -11,7 +13,7 @@ class MediaBuilder
 public:
     virtual void buildComboMedia() = 0;
     virtual void buildShapeMedia(Shape *s) = 0;
-    virtual Media *getMedia() const{ return nullptr; }
+    virtual Media *getMedia() const = 0;
 
 private:
 
@@ -23,7 +25,8 @@ public:
     ShapeMediaBuilder();
     void buildShapeMedia(Shape *s);
     void buildComboMedia();
-    ShapeMedia *getShapeMedia() const;
+    Media *getMedia() const;
+    //ShapeMedia *getShapeMedia() const;
 
 private:
     ShapeMedia *sm;
@@ -35,10 +38,13 @@ public:
     void buildShapeMedia(Shape *s);
     void buildShapeMedia(Media *m);
     void buildComboMedia();
-    ComboMedia *getComboMedia() const;
+    Media *getMedia() const;
+    //ComboMedia *getComboMedia() const;
+    ShapeMedia *findMedia(Shape *s);
 
 private:
     ComboMedia *cm;
+    vector<ShapeMedia *> mediaIndex;
 };
 
 #endif

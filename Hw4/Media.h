@@ -14,6 +14,7 @@ public :
     virtual void add(Media * m) {
         throw string("Illegal: add on media");
     }
+    virtual void removeMedia(Media *m){};
     virtual string getDescription(){ return "NULL";};
 };
 

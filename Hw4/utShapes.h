@@ -23,7 +23,7 @@ TEST(first, ShapeMediaBuilder){
     ShapeMediaBuilder smb;
     smb.buildShapeMedia(&c1);
 
-    ShapeMedia *smCircle = smb.getShapeMedia();
+    Media *smCircle = smb.getMedia();
 
     DOUBLES_EQUAL(78.5, smCircle->area(), epsilon);
 }
@@ -38,17 +38,17 @@ TEST(second, buildHouse){
     cmb1.buildComboMedia();
     cmb1.buildShapeMedia(&r2);
     cmb1.buildShapeMedia(&c1);
-    ComboMedia *combo1 = cmb1.getComboMedia();
+    Media *combo1 = cmb1.getMedia();
 
     cmb2.buildComboMedia();
     cmb2.buildShapeMedia(combo1);
     cmb2.buildShapeMedia(&r1);
-    ComboMedia *combo2 = cmb2.getComboMedia();
+    Media *combo2 = cmb2.getMedia();
 
     cmb3.buildComboMedia();
     cmb3.buildShapeMedia(combo2);
     cmb3.buildShapeMedia(&t1);
-    ComboMedia *combo3 = cmb3.getComboMedia();
+    Media *combo3 = cmb3.getMedia();
 
     descriptionVisitor dv;
 
@@ -57,23 +57,45 @@ TEST(second, buildHouse){
     CHECK("combo(combo(combo(r(10 0 15 5)c(12 5 2))r(0 0 25 20))t(0 20 16 32 25 20))" == dv.getDescription());
 }
 
-TEST(third, vectorErase){
+TEST(third, TextMedia){
+    Rectangle rec(10, 0, 15, 5);
+    Text t1(rec, "I am a text media !");
+    TextMedia tm(&t1);
+
+    CHECK("I am a text media !" == tm.getText());
+}
+
+TEST(fourth, removeShapeMedia){
     Triangle t1(0, 20, 16, 32, 25 ,20);
     Rectangle r1(0, 0, 25, 20);
     Circle c1(12, 5, 2);
     Rectangle r2(10, 0, 15, 5);
 
-    ShapeMedia sm1(&t1);
-    ShapeMedia sm2(&r1);
-    ShapeMedia sm3(&c1);
-    ShapeMedia sm4(&r2);
+    ComboMediaBuilder cmb1, cmb2, cmb3;
 
-    vector<Media *> shapeMediaVector = {&sm1, &sm2, &sm3, &sm4};
-    ComboMedia cm(shapeMediaVector);
+    cmb1.buildComboMedia();
+    cmb1.buildShapeMedia(&r2);
+    cmb1.buildShapeMedia(&c1);
+    Media *combo1 = cmb1.getMedia();
 
-    cm.remove(&sm1);
+    cmb2.buildComboMedia();
+    cmb2.buildShapeMedia(combo1);
+    cmb2.buildShapeMedia(&r1);
+    Media *combo2 = cmb2.getMedia();
 
-    cout << cm.area() << endl;
+    cmb3.buildComboMedia();
+    cmb3.buildShapeMedia(combo2);
+    cmb3.buildShapeMedia(&t1);
+    Media *combo3 = cmb3.getMedia();
+
+    ShapeMedia *removeComponent = cmb2.findMedia(&r1);
+    combo2->removeMedia(removeComponent);
+
+    descriptionVisitor dv;
+
+    combo3->accept(&dv);
+
+    CHECK("combo(combo(combo(r(10 0 15 5)c(12 5 2)))t(0 20 16 32 25 20))" == dv.getDescription());
 }
 
 #endif

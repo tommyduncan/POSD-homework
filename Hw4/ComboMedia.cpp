@@ -29,7 +29,7 @@ void ComboMedia::add(Media *m) {
     media.push_back(m);
 }
 
-void ComboMedia::remove(Media *m){
+void ComboMedia::removeMedia(Media *m){
     vector<Media *>::iterator itr;
 
     for(itr = media.begin(); itr != media.end(); ){
@@ -39,8 +39,3 @@ void ComboMedia::remove(Media *m){
         else ++itr;
     }
 }
-/*
-string ComboMedia::getDescription(){
-    return "ComboMedia";
-}
-*/
