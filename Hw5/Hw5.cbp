@@ -43,6 +43,8 @@
 		<Unit filename="Media.h" />
 		<Unit filename="MediaBuilder.cpp" />
 		<Unit filename="MediaBuilder.h" />
+		<Unit filename="MediaDirector.cpp" />
+		<Unit filename="MediaDirector.h" />
 		<Unit filename="Rectangle.cpp" />
 		<Unit filename="Rectangle.h" />
 		<Unit filename="Shape.h" />

@@ -1,8 +1,11 @@
 #ifndef UTSHAPES_H_INCLUDED
 #define UTSHAPES_H_INCLUDED
 
+#include<iostream>
 #include<math.h>
 #include<vector>
+#include<stack>
+#include<stdlib.h>
 #include "..\cppunitlite\TestHarness.h"
 #include "Rectangle.h"
 #include "Circle.h"
@@ -11,8 +14,7 @@
 #include "ComboMedia.h"
 #include "MediaBuilder.h"
 #include "Document.h"
-
-#include<iostream>
+#include "MediaDirector.h"
 
 using namespace std;
 
@@ -25,6 +27,47 @@ TEST(first, openFile){
 }
 
 TEST(second, builder_director){
+    stack<MediaBuilder *> mbs;
+    MyDocument document;
+    MediaDirector director;
+    unsigned int j;
+    long w, x, y, z;
+    char shape[16] = {'\0'}, *pEnd;
+
+    string shapeString = document.openDocument("myShape.txt");
+
+    for(unsigned int i = 0; i < shapeString.length(); i++){
+        if(shapeString.substr(i, 5) == "combo"){
+        }else if(shapeString.substr(i, 2) == "c("){
+            for(j = 0; shapeString[i] != ')'; i++, j++){
+                    shape[j] = shapeString[i + 2];
+            }
+            shape[j] = ')';
+            shape[j + 1] = '\0';
+
+            w = strtol(shape, &pEnd, 10);
+            x = strtol(pEnd, &pEnd, 10);
+            y = strtol(pEnd, NULL, 10);
+
+        }else if(shapeString.substr(i, 2) == "r("){
+            for(j = 0; shapeString[i] != ')'; i++, j++){
+                    shape[j] = shapeString[i + 2];
+            }
+            shape[j] = ')';
+            shape[j + 1] = '\0';
+
+            w = strtol(shape, &pEnd, 10);
+            x = strtol(pEnd, &pEnd, 10);
+            y = strtol(pEnd, &pEnd, 10);
+            z = strtol(pEnd, NULL, 10);
+        }else if(shapeString.substr(i, 2) == "t("){
+            for(j = 0; shapeString[i] != ')'; i++, j++){
+                    shape[j] = shapeString[i + 2];
+            }
+            shape[j] = ')';
+            shape[j + 1] = '\0';
+        }
+    }
 }
 
 #endif
