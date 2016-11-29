@@ -28,6 +28,8 @@ TEST(first, openFile){
 
 TEST(second, builder_director){
     stack<MediaBuilder *> mbs;
+    ComboMediaBuilder *cmb = nullptr;
+    MediaDirector md;
     MyDocument document;
     MediaDirector director;
     unsigned int j;
@@ -38,6 +40,14 @@ TEST(second, builder_director){
 
     for(unsigned int i = 0; i < shapeString.length(); i++){
         if(shapeString.substr(i, 5) == "combo"){
+            if(cmb != nullptr){
+                mbs.push(cmb);
+                cmb = new ComboMediaBuilder();
+                cmb->buildComboMedia();
+            }else{
+                cmb = new ComboMediaBuilder();
+                cmb->buildComboMedia();
+            }
         }else if(shapeString.substr(i, 2) == "c("){
             for(j = 0; shapeString[i] != ')'; i++, j++){
                     shape[j] = shapeString[i + 2];
@@ -48,6 +58,8 @@ TEST(second, builder_director){
             w = strtol(shape, &pEnd, 10);
             x = strtol(pEnd, &pEnd, 10);
             y = strtol(pEnd, NULL, 10);
+
+            cmb->buildShapeMedia(new Circle(w, x, y));
 
         }else if(shapeString.substr(i, 2) == "r("){
             for(j = 0; shapeString[i] != ')'; i++, j++){
@@ -60,14 +72,13 @@ TEST(second, builder_director){
             x = strtol(pEnd, &pEnd, 10);
             y = strtol(pEnd, &pEnd, 10);
             z = strtol(pEnd, NULL, 10);
-        }else if(shapeString.substr(i, 2) == "t("){
-            for(j = 0; shapeString[i] != ')'; i++, j++){
-                    shape[j] = shapeString[i + 2];
-            }
-            shape[j] = ')';
-            shape[j + 1] = '\0';
+
+            cmb->buildShapeMedia(new Rectangle(w, x, y, z));
         }
     }
+    mbs.push(cmb);
+
+    md.setMediaBuilder(&mbs);
 }
 
 #endif

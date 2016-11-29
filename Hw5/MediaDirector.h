@@ -4,6 +4,7 @@
 #include<stack>
 #include<iostream>
 #include "MediaBuilder.h"
+#include "Media.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ public:
     void concrete(string content);
 
 private:
+    Media *media;
     stack<MediaBuilder *> *mb;
 };
 
