@@ -32,7 +32,7 @@ TEST(second, builder_director){
     MediaDirector md;
     MyDocument document;
     unsigned int j;
-    long w, x, y, z;
+    long w, x, y, z, a, b;
     char shape[16] = {'\0'}, *pEnd;
 
     string shapeString = document.openDocument("myShape.txt");
@@ -73,12 +73,27 @@ TEST(second, builder_director){
             z = strtol(pEnd, NULL, 10);
 
             cmb->buildShapeMedia(new Rectangle(w, x, y, z));
+        }else if(shapeString.substr(i, 2) == "t("){
+            for(j = 0; shapeString[i] != ')'; i++, j++){
+                    shape[j] = shapeString[i + 2];
+            }
+            shape[j] = ')';
+            shape[j + 1] = '\0';
+
+            w = strtol(shape, &pEnd, 10);
+            x = strtol(pEnd, &pEnd, 10);
+            y = strtol(pEnd, &pEnd, 10);
+            z = strtol(pEnd, &pEnd, 10);
+            a = strtol(pEnd, &pEnd, 10);
+            b = strtol(pEnd, NULL, 10);
+
+            cmb->buildShapeMedia(new Triangle(w, x, y, z, a, b));
         }
     }
     mbs.push(cmb);
 
     md.setMediaBuilder(&mbs);
-    //cout << md.getResult() << endl;
+
     CHECK(md.getResult() == "combo(r(0 0 3 2)c(0 0 5)combo(r(0 0 5 4)c(0 0 10))combo(r(0 1 8 7)c(0 1 10)))");
 }
 
