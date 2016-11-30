@@ -13,6 +13,7 @@ class MediaBuilder
 public:
     virtual void buildComboMedia() = 0;
     virtual void buildShapeMedia(Shape *s) = 0;
+    virtual void buildShapeMedia(Media *m) = 0;
     virtual Media *getMedia() const = 0;
 
 private:
@@ -24,6 +25,7 @@ class ShapeMediaBuilder : public MediaBuilder
 public:
     ShapeMediaBuilder();
     void buildShapeMedia(Shape *s);
+    void buildShapeMedia(Media *m);
     void buildComboMedia();
     Media *getMedia() const;
     //ShapeMedia *getShapeMedia() const;

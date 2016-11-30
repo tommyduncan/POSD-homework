@@ -12,10 +12,12 @@ class MediaDirector{
 public:
     void setMediaBuilder(stack<MediaBuilder *> *mbs);
     void concrete(string content);
+    string getResult();
 
 private:
-    Media *media;
+    MediaBuilder *mediaBuilder[10];
     stack<MediaBuilder *> *mb;
+    string result;
 };
 
 #endif

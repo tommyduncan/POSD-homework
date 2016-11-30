@@ -8,6 +8,8 @@ void ShapeMediaBuilder::buildShapeMedia(Shape *s){
     sm = new ShapeMedia(s);
 };
 
+void ShapeMediaBuilder::buildShapeMedia(Media *m){}
+
 void ShapeMediaBuilder::buildComboMedia(){
 };
 
