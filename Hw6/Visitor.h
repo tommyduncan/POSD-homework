@@ -3,6 +3,7 @@
 
 #include<string>
 #include<sstream>
+#include<vector>
 
 using namespace std;
 
@@ -24,8 +25,10 @@ public:
     void comboMediaVisitor(ComboMedia *cm, bool flag);
     void textMediaVisitor(TextMedia *tm);
     string getDescription();
+    vector<string> getContentName();
 private:
     string desc;
+    vector<string> contentName;
 };
 
 #endif

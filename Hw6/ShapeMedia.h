@@ -16,6 +16,7 @@ public :
     double perimeter() const;
     string getDescription();
     Shape *getShape();
+    string getName();
 
 private:
     Shape* shape;

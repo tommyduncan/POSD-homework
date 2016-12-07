@@ -21,3 +21,7 @@ string ShapeMedia::getDescription(){
 Shape * ShapeMedia::getShape(){
     return shape;
 }
+
+string ShapeMedia::getName(){
+    return mediaName;
+}

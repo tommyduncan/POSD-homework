@@ -7,6 +7,7 @@ descriptionVisitor::descriptionVisitor():desc(""){}
 
 void descriptionVisitor::shapeMediaVisitor(ShapeMedia *sm) {
     desc += sm->getDescription();
+    contentName.push_back(sm->getName());
 }
 
 void descriptionVisitor::comboMediaVisitor(ComboMedia *cm, bool flag) {
@@ -23,3 +24,8 @@ void descriptionVisitor::textMediaVisitor(TextMedia *tm) {
 string descriptionVisitor::getDescription(){
     return desc;
 }
+
+vector<string> descriptionVisitor::getContentName(){
+    return contentName;
+}
+
