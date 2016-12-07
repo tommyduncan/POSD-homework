@@ -16,7 +16,8 @@ public:
     double perimeter() const;
     void accept(MediaVisitor * cmVisitor);
     void add(Media *m);
-    void removeMedia(Media *m);
+    void remove(string name);
+    string getName();
 
 private:
     vector<Media*> media;

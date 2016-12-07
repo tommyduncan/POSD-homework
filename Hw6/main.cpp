@@ -24,7 +24,7 @@ int main()
     int index;
     unsigned int x, y, r, length, width, commaCounter, paramCounter, parenthCounter, counter;
     char *c_input, *c_cmd, *c_shapeType, *c_shapeName, *c_fileName, *c_shapeDetail, *param, *temp, *pEnd, buffer1[128] = {0}, buffer2[128] = {0}, shapeChar[128];
-    string input, cmd, shapeType, shapeName, fileName, shapeDetail, contentShape[10], writeString1, writeString2, temporary;
+    string input, cmd, shapeType, shapeName, comboName, fileName, shapeDetail, contentShape[10], writeString1, writeString2, temporary;
     vector<Media *> mediaVector;
     vector<string> mediaIndex, contentName;
     Shape *shape;
@@ -197,11 +197,40 @@ int main()
 
                 mediaVector[y]->add(mediaVector[x]);
             }
-            else if(cmd == "delete")
-                cout << ">> " << cmd << endl;
+            else if(cmd == "delete"){
+                c_shapeName = strtok(NULL, " ");
+                shapeName.assign(c_shapeName);
+                temp = strtok(NULL, " ");
+
+                /* §PÂ_deleteªº®æ¦¡ */
+                if(!temp){
+                    for(unsigned int i = 0; i < mediaIndex.size(); i++){
+                        if(mediaIndex[i] == shapeName){
+                            index = i;
+                            break;
+                        }else{
+                            index = -1;
+                        }
+                    }
+                    mediaIndex.erase(mediaIndex.begin() + index);
+                    mediaVector.erase(mediaVector.begin() + index);
+                }else{
+                    temp = strtok(NULL, " ");
+                    comboName.assign(temp);
+
+                    for(unsigned int i = 0; i < mediaIndex.size(); i++){
+                        if(mediaIndex[i] == comboName){
+                            index = i;
+                            break;
+                        }else{
+                            index = -1;
+                        }
+                    }
+                    mediaVector[index]->remove(shapeName);
+                }
+            }
             else if(cmd == "show"){
-                for(unsigned int i = 0; i < mediaIndex.size(); i++)
-                {
+                for(unsigned int i = 0; i < mediaIndex.size(); i++){
                     cout << "   " << mediaIndex[i] << endl;
                 }
             }

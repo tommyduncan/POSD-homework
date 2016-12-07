@@ -29,13 +29,19 @@ void ComboMedia::add(Media *m) {
     media.push_back(m);
 }
 
-void ComboMedia::removeMedia(Media *m){
-    vector<Media *>::iterator itr;
-
-    for(itr = media.begin(); itr != media.end(); ){
-        if(*itr == m){
-            itr = media.erase(itr);
+void ComboMedia::remove(string name){
+    int index = 0;
+    for(unsigned int i = 0; i < media.size(); i++){
+        if(name == media[i]->getName()){
+                index = i;
+                break;
+        }else{
+            index = -1;
         }
-        else ++itr;
     }
+    media.erase(media.begin() + index);
+}
+
+string ComboMedia::getName(){
+    return mediaName;
 }
