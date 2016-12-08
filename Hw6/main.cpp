@@ -9,6 +9,7 @@
 #include "Shape.h"
 #include "Circle.h"
 #include "Rectangle.h"
+#include "Triangle.h"
 #include "Media.h"
 #include "ShapeMedia.h"
 #include "ComboMedia.h"
@@ -21,7 +22,7 @@ int main()
     fstream file;
     regex area("[A-Za-z0-9]*.area[\?]");
     regex perimeter("[A-Za-z0-9]*.perimeter[\?]");
-    int index;
+    int x1, y1, x2, y2, x3, y3, index = -1;
     unsigned int x, y, r, length, width, commaCounter, paramCounter, parenthCounter, counter;
     char *c_input, *c_cmd, *c_shapeType, *c_shapeName, *c_fileName, *c_shapeDetail, *param, *temp, *pEnd, buffer1[128] = {0}, buffer2[128] = {0}, shapeChar[128];
     string input, cmd, shapeType, shapeName, comboName, fileName, shapeDetail, contentShape[10], writeString1, writeString2, temporary;
@@ -90,6 +91,21 @@ int main()
             {
                 c_shapeName = strtok(NULL, " ");
                 shapeName.assign(c_shapeName);
+
+                /* 搜尋是否有重複名稱的Shape */
+                for(unsigned int i = 0; i < mediaIndex.size(); i++){
+                    if(mediaIndex[i] == shapeName){
+                        index = i;
+                        break;
+                    }else{
+                        index = -1;
+                    }
+                }
+                if(index != -1){
+                    cout << ">> \"" << shapeName << "\" has already existed." << endl;
+                    continue;
+                }
+
                 c_shapeDetail = strtok(NULL, " ");
                 c_shapeDetail = strtok(NULL, "\0");
 
@@ -131,9 +147,26 @@ int main()
 
                     mediaVector.push_back(media);
                     mediaIndex.push_back(shapeName);
-                }
-                else if(shapeType == "combo")
-                {
+                }else if(shapeType == "Triangle"){
+                    param = strtok(NULL, ",");
+                    x1 = atoi(param);
+                    param = strtok(NULL, ",");
+                    y1 = atoi(param);
+                    param = strtok(NULL, ", ");
+                    x2 = atoi(param);
+                    param = strtok(NULL, ", ");
+                    y2 = atoi(param);
+                    param = strtok(NULL, ", ");
+                    x3 = atoi(param);
+                    param = strtok(NULL, ")");
+                    y3 = atoi(param);
+
+                    shape = new Triangle(x1, y1, x2, y2, x3, y3);
+                    media = new ShapeMedia(shape, shapeName);
+
+                    mediaVector.push_back(media);
+                    mediaIndex.push_back(shapeName);
+                }else if(shapeType == "combo"){
                     commaCounter = 0;
                     temp = strtok(NULL, "}");
                     for(unsigned int i = 0; temp[i] != '\0'; i++){
@@ -170,8 +203,10 @@ int main()
                 }
             }
             else if(cmd == "add"){
-                c_shapeName = strtok(NULL, " ");
+                c_shapeName = strtok(NULL, " ");    /* 切出ShapeMedia的名稱 */
                 shapeName.assign(c_shapeName);
+
+                /* 從mediaIndex找出對應之Shape Name */
                 for(unsigned int i = 0; i < mediaIndex.size(); i++){
                     if(mediaIndex[i] == shapeName){
                         index = i;
@@ -183,8 +218,10 @@ int main()
                 x = index;
 
                 c_shapeName = strtok(NULL, " ");
-                c_shapeName = strtok(NULL, "\0");
+                c_shapeName = strtok(NULL, "\0");   /* 切出ComboMedia的名稱 */
                 shapeName.assign(c_shapeName);
+
+                /* 搜尋出欲加入的ComboMedia */
                 for(unsigned int i = 0; i < mediaIndex.size(); i++){
                     if(mediaIndex[i] == shapeName){
                         index = i;
@@ -195,7 +232,7 @@ int main()
                 }
                 y = index;
 
-                mediaVector[y]->add(mediaVector[x]);
+                mediaVector[y]->add(mediaVector[x]);    /* 將ShapeMedia加入進ComboMedia內 */
             }
             else if(cmd == "delete"){
                 c_shapeName = strtok(NULL, " ");
@@ -260,7 +297,7 @@ int main()
                 for(unsigned int i = 0; i < contentName.size(); i++){
                     writeString2 += contentName[i];
                     if(i < contentName.size() - 1)
-                        writeString2 += ",";
+                        writeString2 += " ";
                 }
 
                 /* 開檔、寫檔... */
@@ -300,7 +337,7 @@ int main()
                     comboMedia = new ComboMedia(shapeName);
                     for(unsigned int i = 0; i < parenthCounter - 1; i++){
                             if(i < parenthCounter - 2){
-                                param = strtok(NULL, ",");
+                                param = strtok(NULL, " ");
                                 contentShape[i].assign(param);
                             }else{
                                 param = strtok(NULL, "}");
@@ -326,8 +363,7 @@ int main()
                             shape = new Rectangle(x, y, length, width);
                             media = new ShapeMedia(shape, contentShape[i]);
                             comboMedia->add(media);
-                        }
-                        else if(*c_shapeDetail == 'c'){
+                        }else if(*c_shapeDetail == 'c'){
                             for(counter = 0; c_shapeDetail[counter] != '\0'; counter++){
                                 shapeChar[counter] = c_shapeDetail[counter + 2];
                             }
@@ -338,6 +374,22 @@ int main()
                             r = (int)strtol(pEnd, &pEnd, 10);
 
                             shape = new Circle(x, y, r);
+                            media = new ShapeMedia(shape, contentShape[i]);
+                            comboMedia->add(media);
+                        }else if(*c_shapeDetail == 't'){
+                            for(counter = 0; c_shapeDetail[counter] != '\0'; counter++){
+                                shapeChar[counter] = c_shapeDetail[counter + 2];
+                            }
+                            shapeChar[counter] = '\0';
+
+                            x1 = (int)strtol(shapeChar, &pEnd, 10);
+                            y1 = (int)strtol(pEnd, &pEnd, 10);
+                            x2 = (int)strtol(pEnd, &pEnd, 10);
+                            y2 = (int)strtol(pEnd, &pEnd, 10);
+                            x3 = (int)strtol(pEnd, &pEnd, 10);
+                            y3 = (int)strtol(pEnd, &pEnd, 10);
+
+                            shape = new Triangle(x1, y1, x2, y2, x3, y3);
                             media = new ShapeMedia(shape, contentShape[i]);
                             comboMedia->add(media);
                         }

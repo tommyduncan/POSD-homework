@@ -52,7 +52,6 @@
 		<Unit filename="Visitor.cpp" />
 		<Unit filename="Visitor.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="myShape.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />
