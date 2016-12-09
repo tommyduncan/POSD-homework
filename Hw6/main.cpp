@@ -117,7 +117,7 @@ int main()
                 shapeType.assign(c_shapeType);
 
                 if(shapeType == "Circle")
-                {
+                {   /* 切割出Circle的圓心以及半徑長 */
                     param = strtok(NULL, ",");
                     x = atoi(param);
                     param = strtok(NULL, ",");
@@ -132,7 +132,7 @@ int main()
                     mediaIndex.push_back(shapeName);
                 }
                 else if(shapeType == "Rectangle")
-                {
+                {   /* 切割出Rectangle的左上頂點以及長、寬 */
                     param = strtok(NULL, ",");
                     x = atoi(param);
                     param = strtok(NULL, ",");
@@ -147,7 +147,8 @@ int main()
 
                     mediaVector.push_back(media);
                     mediaIndex.push_back(shapeName);
-                }else if(shapeType == "Triangle"){
+                }else if(shapeType == "Triangle")
+                {   /* 切割Triangle的三個頂點座標 */
                     param = strtok(NULL, ",");
                     x1 = atoi(param);
                     param = strtok(NULL, ",");
@@ -180,8 +181,13 @@ int main()
                     contentShape[paramCounter].assign(param);
                     paramCounter ++;
                     for(unsigned int i = 0; i < commaCounter; i++, paramCounter++){
-                        param = strtok(NULL, ",");
-                        contentShape[paramCounter].assign(param);
+                        if(i < commaCounter - 1){
+                            param = strtok(NULL, ",");
+                            contentShape[paramCounter].assign(param);
+                        }else{
+                            param = strtok(NULL, "\0");
+                            contentShape[paramCounter].assign(param);
+                        }
                     }
 
                     media = new ComboMedia(shapeName);
