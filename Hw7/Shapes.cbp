@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Shapes" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Shapes" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Shapes" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="../cppunitlite/libCppUnitLite.a" />
+				</Linker>
+			</Target>
+			<Target title="unitTest_Release">
+				<Option output="bin/unitTest_Release/Shapes" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/unitTest_Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="../cppunitlite/libCppUnitLite.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="AddMediaCommand.h" />
+		<Unit filename="Calculator.h" />
+		<Unit filename="Command.h" />
+		<Unit filename="CommandManager.h" />
+		<Unit filename="DefineMediaCommand.h" />
+		<Unit filename="DeleteMediaCommand.h" />
+		<Unit filename="Director.h" />
+		<Unit filename="Document.h" />
+		<Unit filename="FindVisitor.h" />
+		<Unit filename="Instruction.h" />
+		<Unit filename="MyDocument.h" />
+		<Unit filename="ShapeMedia.h">
+			<Option target="unitTest_Release" />
+		</Unit>
+		<Unit filename="Shapes.h">
+			<Option target="unitTest_Release" />
+		</Unit>
+		<Unit filename="addShape.h" />
+		<Unit filename="defineShape.h" />
+		<Unit filename="deleteShape.h" />
+		<Unit filename="loadFile.h" />
+		<Unit filename="main.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="saveFile.h" />
+		<Unit filename="showShape.h" />
+		<Unit filename="test.main.cpp">
+			<Option target="unitTest_Release" />
+		</Unit>
+		<Unit filename="utShapes.h">
+			<Option target="unitTest_Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
