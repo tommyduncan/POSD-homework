@@ -106,16 +106,16 @@ TEST(Problem3, Hw7){    // Undo/Redo "add" command
     media = amc.getMedia();
 
     cmdManager.UndoCMD();
-    cmdManager.RedoCMD();
-
     currentCMD = cmdManager.getCurrentCMD();
     media = currentCMD->getMedia();
 
-    if(media.size() == 4){
-        DOUBLES_EQUAL(512, media[2]->area(), epsilon);
-    }else{
-        FAIL("Problem3 test failed !");
-    }
+    DOUBLES_EQUAL(320, media[2]->area(), epsilon);
+
+    cmdManager.RedoCMD();
+    currentCMD = cmdManager.getCurrentCMD();
+    media = currentCMD->getMedia();
+
+    DOUBLES_EQUAL(512, media[2]->area(), epsilon);
 }
 
 TEST(Problem4, Hw7){    // Undo/Redo "define" command
@@ -134,16 +134,18 @@ TEST(Problem4, Hw7){    // Undo/Redo "define" command
     media = dmc2.getMedia();
 
     cmdManager.UndoCMD();
-    cmdManager.RedoCMD();
-
     currentCMD = cmdManager.getCurrentCMD();
     media = currentCMD->getMedia();
 
-    if(media.size() == 2){
-        DOUBLES_EQUAL(20, media[1]->area(), epsilon);
-    }else{
-        FAIL("Problem4 test failed !");
-    }
+    DOUBLES_EQUAL(1, media.size(), epsilon);
+    DOUBLES_EQUAL(300, media[0]->area(), epsilon);
+
+    cmdManager.RedoCMD();
+    currentCMD = cmdManager.getCurrentCMD();
+    media = currentCMD->getMedia();
+
+    DOUBLES_EQUAL(2, media.size(), epsilon);
+    DOUBLES_EQUAL(20, media[1]->area(), epsilon);
 }
 
 TEST(Problem5_1_1, Hw7){    // Undo/Redo delete shapeMedia
@@ -162,8 +164,12 @@ TEST(Problem5_1_1, Hw7){    // Undo/Redo delete shapeMedia
     media = dmc2.getMedia();
 
     cmdManager.UndoCMD();
-    cmdManager.RedoCMD();
+    currentCMD = cmdManager.getCurrentCMD();
+    media = currentCMD->getMedia();
 
+    DOUBLES_EQUAL(1, media.size(), epsilon);
+
+    cmdManager.RedoCMD();
     currentCMD = cmdManager.getCurrentCMD();
     media = currentCMD->getMedia();
 
@@ -192,16 +198,16 @@ TEST(Problem5_1_2, Hw7){    // Undo/Redo delete comboMedia
     media = dmc3.getMedia();
 
     cmdManager.UndoCMD();
-    cmdManager.RedoCMD();
-
     currentCMD = cmdManager.getCurrentCMD();
     media = currentCMD->getMedia();
 
-    if(media.size() == 1){
-        DOUBLES_EQUAL(300, media[0]->area(), epsilon);
-    }else{
-        FAIL("Problem5-1-2 test failed !");
-    }
+    DOUBLES_EQUAL(2, media.size(), epsilon);
+
+    cmdManager.RedoCMD();
+    currentCMD = cmdManager.getCurrentCMD();
+    media = currentCMD->getMedia();
+
+    DOUBLES_EQUAL(1, media.size(), epsilon);
 }
 
 TEST(Problem5_2, Hw7){    // Undo/Redo delete shapeMedia form comboMedia
@@ -240,8 +246,16 @@ TEST(Problem5_2, Hw7){    // Undo/Redo delete shapeMedia form comboMedia
     media = dmc5.getMedia();
 
     cmdManager.UndoCMD();
-    cmdManager.RedoCMD();
+    currentCMD = cmdManager.getCurrentCMD();
+    media = currentCMD->getMedia();
 
+    if(media.size() == 4){
+        DOUBLES_EQUAL(512, media[2]->area(), epsilon);
+    }else{
+        FAIL("Problem5-2 test failed !");
+    }
+
+    cmdManager.RedoCMD();
     currentCMD = cmdManager.getCurrentCMD();
     media = currentCMD->getMedia();
 
@@ -293,8 +307,16 @@ TEST(Problem5_3, Hw7){    // Undo/Redo delete comboMedia form comboMedia
     media = dmc6.getMedia();
 
     cmdManager.UndoCMD();
-    cmdManager.RedoCMD();
+    currentCMD = cmdManager.getCurrentCMD();
+    media = currentCMD->getMedia();
 
+    if(media.size() == 5){
+        DOUBLES_EQUAL(532, media[3]->area(), epsilon);
+    }else{
+        FAIL("Problem5-3 test failed !");
+    }
+
+    cmdManager.RedoCMD();
     currentCMD = cmdManager.getCurrentCMD();
     media = currentCMD->getMedia();
 
