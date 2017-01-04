@@ -31,6 +31,7 @@ public :
                     }}}
             delete shm;}
         if(s.size()==4){
+            //cout << s[0] << " " << s[1] << " " << s[2] << " " << s[3] << endl;
             ComboMedia *com;
             Media *shm;
             bool find_combo = false;
@@ -48,7 +49,7 @@ public :
                     com->removeMedia(shm);
                     DescriptionVisitor dv;
                     com->accept(&dv);
-                    cout<<dv.getDescription()<<"m[i] size = "<<m.size()<<endl;}
+                    /*cout<<dv.getDescription()<<"m[i] size = "<<m.size()<<endl;*/}
                 else
                     cout<<"We can not find ShapeMedia in ComboMedia\n";
             }

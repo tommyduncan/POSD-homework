@@ -2,6 +2,7 @@
 #define DEFINESHAPE_H_INCLUDED
 
 #include <vector>
+#include "Shapes.h"
 #include "ShapeMedia.h"
 
 using namespace std;
@@ -22,7 +23,7 @@ public :
         string head = temp.substr(0, temp.find_first_of("("));
         for(int i =0; i<m.size();i++){
            if(s[1] == m[i]->getName()){
-             cout << "name duplicated" << endl;
+             //cout << "name duplicated" << endl;
              duplicated = true;
            }
         }
@@ -45,7 +46,7 @@ public :
                 ShapeMedia *sh = new ShapeMedia(c);
                 m.push_back(sh);
 
-                cout<< ">> Circle (" << carray[0]<<","<<carray[1]<<","<<carray[2]<<")" << endl;
+                //cout<< ">> Circle (" << carray[0]<<","<<carray[1]<<","<<carray[2]<<")" << endl;
             }
             if(head == "Rectangle"){
                 temp.erase(0,temp.find_first_of("(")+1);
@@ -65,7 +66,7 @@ public :
                 ShapeMedia *sh = new ShapeMedia(r);
                 m.push_back(sh);
 
-                cout<< ">> Rectangle (" << rArray[0]<<","<<rArray[1]<<","<<rArray[2]<<","<<rArray[3]<<")" << endl;
+                //cout<< ">> Rectangle (" << rArray[0]<<","<<rArray[1]<<","<<rArray[2]<<","<<rArray[3]<<")" << endl;
             }
             else{
                     string head = temp.substr(0, temp.find_first_of("{"));
@@ -96,7 +97,7 @@ public :
                     ComboMedia *com = new ComboMedia(mtemp);
                     com->setName(s[1]);
                     m.push_back(com);
-                    cout<<"success\n";
+                    //cout<<"success\n";
                   }
                 }
             }

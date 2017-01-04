@@ -1,2 +1,0 @@
-combo(r(1 10 2 8) c(2 1 1) )
-comboExclamation{rTall cSmall }

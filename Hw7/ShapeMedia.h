@@ -99,11 +99,13 @@ public :
         throw std::string("Illegal: remove on media");
     }
     virtual string getName() = 0;
+    virtual std::vector<Media *> getMedia() = 0;
 };
 
 class ShapeMedia :public Media {
 private:
     Shape* shape ;
+    std::vector<Media*> media;
 public :
     ShapeMedia( Shape* s ): shape(s) {}
     virtual void accept(DescriptionVisitor * dv) {
@@ -128,6 +130,8 @@ public :
     }
     void setName(string name){shape->setName(name); }
     Shape * getShape()const {return shape;}
+
+    std::vector<Media *> getMedia(){ return media; }
 };
 
 class ComboMedia : public Media {
@@ -177,18 +181,17 @@ public:
     }
     void add (Media *m) {media.push_back(m);}
     void removeMedia(Media * m){
-        for(vector<Media*>::const_iterator it = media.begin(); it != media.end(); ++it) {
+        for(vector<Media*>::iterator it = media.begin(); it != media.end(); ++it) {
             if(*it == m) {
-                //cout<<m->getName()<<endl;
-                //delete *it;
                 media.erase(it);
-                return;}
-            else {(*it)->removeMedia(m);}
+                return;
+            }
         }
     }
 
     void setName(string name){this->name = name;}
     string getName(){return name;}
+    std::vector<Media *> getMedia(){ return media; }
 };
 
 void DescriptionVisitor::visitShapeMedia(ShapeMedia *sm) {

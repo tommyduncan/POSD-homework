@@ -30,7 +30,7 @@ public:
             m[num]->accept(&dv);
             NameVisitor nv;
             m[num]->acceptNV(&nv);
-            cout<<">> "<<m[num]->getName()<<" = "<<nv.getAllName()<<" = "<<dv.getDescription()<<endl;
+            //cout<<">> "<<m[num]->getName()<<" = "<<nv.getAllName()<<" = "<<dv.getDescription()<<endl;
             return m;
         }
 };

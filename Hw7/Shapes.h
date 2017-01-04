@@ -34,7 +34,7 @@ public:
     }
     std::string description() const {
         std::stringstream ss;
-        ss << "r(" << x << " " << y << " " << l << " " << w << ") ";
+        ss << "Rectangle(" << x << "," << y << "," << l << "," << w << ") ";
         return ss.str();
     }
     std::string getName()const {
@@ -63,7 +63,7 @@ public:
     }
     std::string description() const {
         std::stringstream ss;
-        ss << "c(" << cx << " " << cy << " " << r << ") ";
+        ss << "Circle(" << cx << "," << cy << "," << r << ") ";
         return ss.str();
     }
     std::string getName()const {

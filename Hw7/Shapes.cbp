@@ -66,6 +66,7 @@
 		<Unit filename="addShape.h" />
 		<Unit filename="defineShape.h" />
 		<Unit filename="deleteShape.h" />
+		<Unit filename="keyEvent.h" />
 		<Unit filename="loadFile.h" />
 		<Unit filename="main.cpp">
 			<Option target="Debug" />

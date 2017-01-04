@@ -42,6 +42,7 @@ public :
             }
             else if(instruction == "add") {
                 AddMediaCommand amc(m, strInput);
+                cmdManager.ExecuteCMD(&amc);
                 m = amc.getMedia();
             }
             else if(instruction == "delete") {
